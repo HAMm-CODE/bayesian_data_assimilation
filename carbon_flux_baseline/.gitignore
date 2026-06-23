@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+
+.venv/
+venv/
+env/
+
+# Keep folder structure, but do not commit large/raw data files.
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Generated workflow outputs.
+results/figures/*
+!results/figures/.gitkeep
+results/metrics/*
+!results/metrics/.gitkeep
+results/outputs/*
+!results/outputs/.gitkeep
