@@ -71,7 +71,7 @@ def select_available_columns(data: pd.DataFrame) -> pd.DataFrame:
 
 def clean_fluxnet_data(
     data: pd.DataFrame,
-    year: int = 2018,
+    year: int = 2012,
     daytime_sw_threshold: float = 20.0,
 ) -> pd.DataFrame:
     """Clean FI-Hyy data for the first daytime baseline modelling experiment."""
@@ -101,7 +101,7 @@ def save_cleaned_data(data: pd.DataFrame, output_path: Path) -> None:
 def clean_fluxnet_file(
     input_path: Path,
     output_path: Path,
-    year: int = 2018,
+    year: int = 2012,
     daytime_sw_threshold: float = 20.0,
 ) -> pd.DataFrame:
     """Load, clean, save, and return the FI-Hyy daytime dataset."""
