@@ -118,6 +118,14 @@ Note: This project does not implement any Bayesian data assimilation techniques.
 
 The baseline model was evaluated using 7,332 daytime observations. For the main comparison against FLUXNET `NEE_VUT_REF`, the model produced an RMSE of 5.15, MAE of 3.99, bias of 3.01, and Pearson correlation of 0.62. This shows moderate agreement between the observed and modelled NEE. The positive bias means the model tended to predict NEE values that were too high, which may indicate that daytime carbon uptake was underestimated under the usual NEE sign convention.
 
+## Metrics Table
+
+| Comparison | Observed Column | Modelled Column | Type | n | RMSE | MAE | Bias | Pearson r | Note |
+| --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
+| NEE_model vs NEE_VUT_REF | NEE_VUT_REF | NEE_model | main | 7332 | 5.153 | 3.985 | 3.006 | 0.623 | Primary comparison against processed FLUXNET NEE. |
+| GPP_model vs GPP_NT_VUT_REF | GPP_NT_VUT_REF | GPP_model | secondary | 7332 | 5.973 | 4.561 | -3.167 | 0.695 | FLUXNET GPP is a partitioned model-derived estimate. |
+| RECO_model vs RECO_NT_VUT_REF | RECO_NT_VUT_REF | RECO_model | secondary | 7332 | 1.293 | 1.062 | -0.160 | 0.908 | FLUXNET RECO is a partitioned model-derived estimate. |
+
 The secondary comparison against FLUXNET partitioned GPP showed a Pearson correlation of 0.69, suggesting that the model captured some of the temporal variation in GPP. However, the RMSE of 5.97, MAE of 4.56, and negative bias of -3.17 show that the model underestimated GPP relative to the FLUXNET partitioned estimate. Because FLUXNET GPP is itself model-derived, this comparison should be treated as a consistency check rather than direct validation.
 
 The RECO comparison showed the strongest performance, with a Pearson correlation of 0.91, RMSE of 1.29, MAE of 1.06, and bias of -0.16. This suggests that the respiration component of the model matched the reference RECO pattern well and had little systematic error. Overall, the results suggest that the baseline model represents respiration better than photosynthesis, while the weaker NEE performance likely reflects difficulty in balancing GPP and RECO during daytime conditions.
