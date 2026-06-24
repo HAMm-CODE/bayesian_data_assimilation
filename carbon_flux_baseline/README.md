@@ -18,6 +18,8 @@ carbon_flux_baseline/data/raw/
 
 The main target variable is `NEE_VUT_REF`, the processed FLUXNET net ecosystem exchange estimate. Missing values are represented by `-9999` in FLUXNET2015-style files and are converted to `NaN` during cleaning.
 
+### Model Equations
+
 The baseline model estimates GPP and RECO internally using simple process equations:
 
 ```text
@@ -26,19 +28,42 @@ RECO_model = R0 * exp(k * TA_F)
 NEE_model = RECO_model - GPP_model
 ```
 
-The default parameters are:
+### Model Inputs
+
+The model takes the following FLUXNET variables as inputs:
+
+- **`TA_F`**: Air temperature (°C)
+- **`SW_IN_F`**: Incoming shortwave radiation (W/m²)
+
+### Model Parameters
+
+**Note:** In this baseline project, parameters are kept constant. In the data assimilation workflow, these parameters will be assigned probability distributions rather than fixed values.
+
+The baseline parameters are:
 
 ```text
-alpha = 0.02
-R0 = 2.0
-k = 0.05
+alpha: float = 0.02      # GPP light-use efficiency coefficient
+r0: float = 2.0          # RECO reference rate at 0°C
+k: float = 0.05          # RECO temperature sensitivity
 ```
 
-FLUXNET sign convention is important: negative NEE usually means ecosystem carbon uptake, while positive NEE means ecosystem carbon release. For that reason, the model calculates:
+### Model Outputs
+
+The model produces the following outputs:
+
+- **`output["GPP_model"]`**: Gross Primary Productivity (µmol CO₂/m²/s)
+- **`output["RECO_model"]`**: Ecosystem Respiration (µmol CO₂/m²/s)
+- **`output["NEE_model"]`**: Net Ecosystem Exchange (µmol CO₂/m²/s)
+
+NEE is calculated as the difference between respiration and photosynthesis:
 
 ```text
 NEE_model = RECO_model - GPP_model
 ```
+
+FLUXNET sign convention is important: negative NEE usually means ecosystem carbon uptake, while positive NEE means ecosystem carbon release.
+
+### Data Selection
 
 The first test year is `2012`. Daytime data are selected using:
 
