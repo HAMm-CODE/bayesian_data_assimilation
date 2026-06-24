@@ -5,7 +5,7 @@ This project is a beginner-friendly baseline for a Master's thesis experiment us
 The first workflow uses half-hourly data from:
 
 ```text
-ICOS_FI-Hyy_FLUXNET_FLUXMET_HH_1997-2024_v1.3_r1.csv
+FLX_FI-Hyy_FLUXNET2015_FULLSET_HH_1996-2014_1-4.csv
 ```
 
 Place this file in:
@@ -40,7 +40,7 @@ FLUXNET sign convention is important: negative NEE usually means ecosystem carbo
 NEE_model = RECO_model - GPP_model
 ```
 
-The first test year is `2018`. Daytime data are selected using:
+The first test year is `2012`. Daytime data are selected using:
 
 ```text
 SW_IN_F > 20
@@ -102,10 +102,14 @@ python src/main.py
 The workflow saves:
 
 ```text
-data/processed/FI_Hyy_2018_daytime_clean.csv
-results/outputs/model_output_2018.csv
-results/metrics/model_metrics_2018.csv
-results/figures/nee_observed_vs_modelled_2018.png
+data/processed/FI_Hyy_2012_daytime_clean.csv
+results/outputs/model_output_2012.csv
+results/metrics/model_metrics_2012.csv
+results/figures/nee_observed_vs_modelled_2012.png
 ```
 
 If `GPP_NT_VUT_REF` and `RECO_NT_VUT_REF` exist, the workflow also saves optional secondary comparison plots in `results/figures/`.
+
+## Note on Bayesian Data Assimilation
+
+Note: This project does not implement any Bayesian data assimilation techniques. It uses a simple baseline process model and associated equations to explore the larger workflow and build familiarity. In this project I ingest data -> clean it -> evaluate it using metrics -> run the `process_model` with the observed NEE sensor data. I plan to continue these investigations in future projects and will add a short conclusion to this README later.
