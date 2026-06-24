@@ -11,13 +11,13 @@ from process_model import run_process_model
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-YEAR = 2018
-RAW_FILE_NAME = "ICOS_FI-Hyy_FLUXNET_FLUXMET_HH_1997-2024_v1.3_r1.csv"
+YEAR = 2012
+RAW_FILE_NAME = "FLX_FI-Hyy_FLUXNET2015_FULLSET_HH_1996-2014_1-4.csv"
 
 RAW_DATA_PATH = PROJECT_ROOT / "data" / "raw" / RAW_FILE_NAME
-CLEANED_DATA_PATH = PROJECT_ROOT / "data" / "processed" / "FI_Hyy_2018_daytime_clean.csv"
-MODEL_OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs" / "model_output_2018.csv"
-METRICS_OUTPUT_PATH = PROJECT_ROOT / "results" / "metrics" / "model_metrics_2018.csv"
+CLEANED_DATA_PATH = PROJECT_ROOT / "data" / "processed" / "FI_Hyy_2012_daytime_clean.csv"
+MODEL_OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs" / "model_output_2012.csv"
+METRICS_OUTPUT_PATH = PROJECT_ROOT / "results" / "metrics" / "model_metrics_2012.csv"
 FIGURES_DIR = PROJECT_ROOT / "results" / "figures"
 
 
