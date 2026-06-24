@@ -40,7 +40,7 @@ def save_time_series_plot(model_output: pd.DataFrame, output_path: Path) -> None
     )
     plt.xlabel("Time")
     plt.ylabel("NEE")
-    plt.title("FI-Hyy 2018 daytime NEE: observed vs modelled")
+    plt.title("FI-Hyy 2012 daytime NEE: observed vs modelled")
     plt.legend()
     plt.tight_layout()
     plt.savefig(output_path, dpi=200)
@@ -76,7 +76,7 @@ def save_optional_partitioned_plots(model_output: pd.DataFrame) -> None:
             model_output,
             x_column="GPP_NT_VUT_REF",
             y_column="GPP_model",
-            output_path=FIGURES_DIR / "gpp_model_vs_gpp_nt_vut_ref_2018.png",
+            output_path=FIGURES_DIR / "gpp_model_vs_gpp_nt_vut_ref_2012.png",
             title="Secondary comparison: GPP_model vs GPP_NT_VUT_REF",
         )
 
@@ -85,7 +85,7 @@ def save_optional_partitioned_plots(model_output: pd.DataFrame) -> None:
             model_output,
             x_column="RECO_NT_VUT_REF",
             y_column="RECO_model",
-            output_path=FIGURES_DIR / "reco_model_vs_reco_nt_vut_ref_2018.png",
+            output_path=FIGURES_DIR / "reco_model_vs_reco_nt_vut_ref_2012.png",
             title="Secondary comparison: RECO_model vs RECO_NT_VUT_REF",
         )
 
@@ -108,7 +108,7 @@ def run_workflow() -> None:
 
     save_time_series_plot(
         model_output,
-        output_path=FIGURES_DIR / "nee_observed_vs_modelled_2018.png",
+        output_path=FIGURES_DIR / "nee_observed_vs_modelled_2012.png",
     )
     save_optional_partitioned_plots(model_output)
 
